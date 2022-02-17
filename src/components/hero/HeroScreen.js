@@ -2,6 +2,9 @@ import React, {useMemo} from 'react'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { getHeroById } from '../../selectors/hero'
 
+//import batman from '../../assets/dc-batman.jpg' static
+import { heroImgs } from '../../helpers/heroImages'
+
 export const HeroScreen = () => {
   const navigate = useNavigate()
 
@@ -22,8 +25,6 @@ export const HeroScreen = () => {
     characters
   } = hero;
 
-  const imagePath = `/assets/${hero.id}.jpg`;
-
   const handleReturn = () => {
     navigate(-1)
   }
@@ -31,7 +32,7 @@ export const HeroScreen = () => {
   return (
     <div className="row mt-5">
       <div className="col-4">
-        <img src={imagePath} 
+        <img src={heroImgs(`./${hero.id}.jpg`)} 
           alt={superhero} 
           className="img-thumbnail animate__animated animate__fadeInLeft" />
       </div>

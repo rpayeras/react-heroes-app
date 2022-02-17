@@ -1,7 +1,7 @@
 import { heroes } from "../data/heroes"
 
 const validPublishers = heroes.map(heroe => heroe.publisher)
-const validIds = heroes.map(heroe => heroe.id)
+//const validIds = heroes.map(heroe => heroe.id)
 
 export const getHeroesByPublisher = (publisher) => {
     if(!validPublishers.includes(publisher)) {
