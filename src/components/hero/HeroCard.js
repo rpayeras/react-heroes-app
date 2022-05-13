@@ -1,13 +1,13 @@
+import propTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
-import { heroImgs } from "../../helpers/heroImages";
 
 export const HeroCard = ({
   id,
   superhero,
   publisher,
-  alter_ego,
-  first_appareance,
+  alter_ego: alterEgo,
+  first_appareance: firstAppareance,
   characters,
 }) => {
   return (
@@ -16,7 +16,7 @@ export const HeroCard = ({
         <div className="row no-gutters">
           <div className="col-4">
             <img
-              src={heroImgs(`./${id}.jpg`)}
+              src={`/assets/${id}.jpg`}
               className="card-img-top"
               alt={superhero}
             />
@@ -24,8 +24,8 @@ export const HeroCard = ({
           <div className="col-8">
             <div className="card-body">
               <h5 className="card-title">{superhero}</h5>
-              <p className="card-text">{alter_ego}</p>
-              {alter_ego !== characters && (
+              <p className="card-text">{alterEgo}</p>
+              {alterEgo !== characters && (
                 <p className="text-muted">{characters}</p>
               )}
 
@@ -39,4 +39,13 @@ export const HeroCard = ({
       </div>
     </div>
   );
+};
+
+HeroCard.propTypes = {
+  id: propTypes.string,
+  superhero: propTypes.string,
+  publisher: propTypes.string,
+  alter_ego: propTypes.string,
+  first_appareance: propTypes.string,
+  characters: propTypes.string,
 };

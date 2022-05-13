@@ -1,5 +1,6 @@
 import React from "react";
 import { HeroCard } from "./HeroCard";
+import PropTypes from "prop-types";
 
 export const HeroList = ({ heroes }) => {
   return (
@@ -9,4 +10,8 @@ export const HeroList = ({ heroes }) => {
       ))}
     </div>
   );
+};
+
+HeroList.propTypes = {
+  heroes: PropTypes.arrayOf(PropTypes.object),
 };
